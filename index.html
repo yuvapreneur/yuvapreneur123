@@ -7,203 +7,237 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #b22222;
-      --secondary: #cc3333;
-      --cream-bg: #faf5e9;
-      --light-peach: #fff5f2;
-      --accent: #e64c3c;
-      --urgent: #cc0000;
-      --text: #2d2d2d;
-      --dark: #161718;
-      --shadow: 0 4px 24px rgba(179,34,34,0.10);
-      --card-bg: #fff;
+      --primary: #7c3aed;        /* Vivid purple */
+      --primary-dark: #5b21b6;   /* Deeper purple */
+      --accent: #f3e8ff;         /* Pastel purple */
+      --cta-bg: #a78bfa;         /* CTA button */
+      --urgent: #ec4899;         /* Pink/purple urgency */
+      --success: #22d3ee;
+      --white: #fff;
+      --text: #222;
+      --card-shadow: 0 3px 24px rgba(124,58,237,0.08);
     }
-    html, body {
+    body {
       font-family: 'Inter', 'Roboto', Arial, sans-serif;
-      background: var(--cream-bg);
+      background: var(--accent);
       color: var(--text);
       margin: 0; padding: 0;
-      min-height: 100vh;
+      line-height: 1.7;
+    }
+    .sticky-cta {
+      position: sticky;
+      top: 0; z-index:1000;
+      background: linear-gradient(90deg,var(--primary),var(--primary-dark));
+      color: var(--white);
+      text-align: center;
+      padding: 9px 2vw 6px 2vw;
+      font-weight: 700;
+      font-size: 1.06rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
+    }
+    .sticky-cta span {
+      background: var(--white);
+      color: var(--primary-dark);
+      border-radius: 17px;
+      padding: 5px 11px;
+      margin-left: 10px;
+      font-size: 1rem;
+      font-weight: 600;
     }
     header {
-      background: linear-gradient(90deg, #fff5f2 20%, #faf5e9 80%);
+      background: linear-gradient(95deg, #ede9fe 40%, #f3e8ff 90%);
       text-align: center;
-      padding: 3.25rem 10px 2.3rem 10px;
-      border-bottom: 2px solid var(--primary);
-      box-shadow: 0 2px 16px rgba(179,34,34,0.03);
+      padding: 3.2rem 10px 2.3rem 10px;
+      border-bottom: 2px solid var(--primary-dark);
+      box-shadow: 0 2px 14px rgba(124,58,237,0.04);
     }
     header h1 {
-      color: var(--primary);
-      font-size: 2.6rem;
-      margin: 0 0 12px 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-      line-height: 110%;
+      color: var(--primary-dark);
+      font-size: 2.3rem;
+      margin: 0 0 9px 0;
+      font-weight: 800;
+      letter-spacing: 1.3px;
     }
     header p {
       color: #5d5d5d;
-      font-size: 1.2rem;
+      font-size: 1.18rem;
+      margin-top: 7px;
       font-weight: 500;
-      letter-spacing: 0.2px;
     }
     .urgency {
-      background: linear-gradient(90deg, #ffeaea 70%, #faf5e9);
       color: var(--urgent);
-      text-align: center;
+      background: #fdf2f8;
       font-weight: 700;
-      font-size: 1.18rem;
-      padding: 14px 0 6px 0;
-      margin: 0 auto 18px auto;
-      border-radius: 22px;
-      border-bottom: 2.5px solid var(--urgent);
-      max-width: 560px;
-      box-shadow: 0 2px 18px rgba(204,0,0,0.08);
-      letter-spacing: 0.2px;
-      transition: background 0.2s;
+      font-size: 1.13rem;
+      text-align: center;
+      border-radius: 21px;
+      margin: 22px auto 6px auto;
+      padding: 13px 2vw 13px 2vw;
+      max-width: 545px;
+      border: 2px solid var(--urgent);
+      box-shadow: 0 2px 9px rgba(236,72,153,0.09);
+      letter-spacing: 0.1px;
     }
     .container {
       width: 100%;
       max-width: 900px;
-      margin: 24px auto 0 auto;
+      margin: 32px auto 0 auto;
       padding: 0 2vw;
       box-sizing: border-box;
     }
-    /* --- Modules section --- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px 22px;
-      margin-bottom: 28px;
+    h2 {
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 1.41rem;
+      border-left: 5px solid var(--primary);
+      letter-spacing: 0.2px;
+      padding-left: 14px;
+      margin:30px 0 17px 0;
     }
+    /* MODULE CARD GRID */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px 23px; }
     .card {
-      background: var(--card-bg);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      padding: 26px 19px 18px 19px;
-      min-height: 126px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      transition: box-shadow 0.15s;
-      border-top: 3px solid var(--primary);
+      background: var(--white);
+      border-radius: 13px;
+      box-shadow: var(--card-shadow);
+      padding: 26px 19px 21px 19px;
+      min-height: 134px;
+      display: flex; flex-direction: column; gap: 0.7rem;
       position: relative;
+      border-top: 3.2px solid var(--primary);
+      transition: box-shadow 0.13s, transform 0.14s;
+      opacity: 0.97; 
     }
-    .card h3 {
-      font-size: 1.13rem;
-      color: var(--primary);
-      margin: 0 0 7px 0;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-    }
-    .card .desc { color: #474747; font-size:1.03rem; margin-bottom: 4px; }
+    .card:hover { box-shadow: 0 7px 24px rgba(124,58,237,0.23); transform:translateY(-3px) scale(1.03);}
+    .card h3 { font-size:1.11rem; color:var(--primary); margin:0 0 7px 0; font-weight:700;letter-spacing:0.7px; }
+    .card .desc { color: #474747;font-size:1.01rem;margin-bottom:4px;}
     .price {
-      position: absolute;
-      bottom: 14px; right: 18px;
-      font-weight: 700;
-      color: var(--secondary);
-      background: #FFF3F1;
-      padding: 3px 12px;
-      border-radius: 10px;
-      font-size: 1rem;
+      position:absolute; bottom: 14px; right:15px;
+      font-weight:700; color: var(--primary-dark);
+      background: var(--accent);
+      font-size:1rem; padding:4px 13px; border-radius:12px;
       letter-spacing: 0.4px;
     }
     .cta-btn {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
       color: #fff;
       border: none;
       border-radius: 7px;
-      padding: 10px 0;
-      margin-top: 13px;
+      padding: 9px 0;
+      margin-top: 14px;
       font-size: 1.08rem;
       font-family: inherit;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 2px 12px rgba(179,34,34,0.08);
+      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
       letter-spacing: 0.3px;
-      transition: background 0.14s;
       width: 100%;
+      transition: background 0.14s, box-shadow 0.14s;
     }
-    .cta-btn:hover { background: linear-gradient(99deg, #cd2a2a, #e85c50);}
-    /* --- Section headings --- */
-    h2 {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.45rem;
-      letter-spacing: 0.2px;
-      margin: 32px 0 18px 0;
-      border-left: 5px solid var(--primary);
-      padding-left: 11px;
+    .cta-btn:hover { background:linear-gradient(90deg,var(--urgent),var(--primary)); box-shadow:0 3px 28px rgba(236,72,153,0.12);}
+    .ticks {
+      margin: 17px auto 18px auto;
+      max-width: 660px;
+      padding: 2px 15px;
+      font-size: 1.13rem;
+      color:#444;
     }
-    .section-subtitle {
-      color: #555;
-      font-size: 1rem;
-      margin-left: 16px;
-      margin-top: -14px;
-      margin-bottom: 14px;
+    .ticks li {
+      list-style: none;
+      background: url('https://img.icons8.com/fluency/24/ok.png') 0 3px no-repeat;
+      padding-left: 36px;
+      margin-bottom: 5px;
       font-weight: 500;
+      min-height: 27px;
     }
-    /* --- Form Styles --- */
+    /* Form Card */
     .form-card {
-      background: var(--card-bg);
-      box-shadow: var(--shadow);
+      background: var(--white);
+      box-shadow: var(--card-shadow);
       border-radius: 13px;
-      padding: 36px 25px 29px 25px;
       max-width: 410px;
-      margin: 32px auto 0 auto;
+      margin: 39px auto 0 auto;
+      padding: 30px 25px 17px 25px;
+      margin-bottom:20px;
     }
     .form-group {
-      position: relative;
-      margin-bottom: 18px;
+      position: relative; margin-bottom:16px;
     }
     .form-group input {
-      width: 100%;
-      padding: 13px 10px 9px 10px;
-      font-size: 1rem;
-      border: 1.2px solid #e5e3e3;
-      border-radius: 4px;
-      outline: none;
-      background: #f9f7f6;
+      width:100%; padding:13px 9px 9px 10px;
+      font-size:1rem; border:1.4px solid #eadffa;
+      border-radius: 4px; outline:none; background: #faf7ff;
       font-family: inherit;
+      font-weight:600;
+      color: #3b2061;
     }
     .form-group label {
-      position: absolute;
-      top: 10px;
-      left: 13px;
-      color: #989999;
-      font-size: 1rem;
-      pointer-events: none;
+      position: absolute; top: 10px; left: 13px;
+      color: #a78bfa; font-size:0.99rem; pointer-events:none;
       transition: all .2s;
       background: transparent;
+      letter-spacing:0.03em;
+      font-weight:600;
     }
     .form-group input:focus + label,
     .form-group input:not(:placeholder-shown) + label {
-      top: -10px;
-      left: 7px;
-      font-size: 0.86rem;
-      color: var(--secondary);
-      background: var(--card-bg);
-      padding: 0 4px;
+      top: -12px; left: 7px; font-size: 0.85rem;
+      color: var(--primary-dark); background: var(--white); padding: 0 4px;
     }
-    .form-card .cta-btn { margin-top: 12px;}
-    #message { text-align:center; color:var(--urgent); font-weight:600; margin-top:11px;}
-    @media (max-width: 640px){
-      .grid {grid-template-columns: 1fr;}
-      .container {padding:0 2vw;}
-      .form-card {padding:18px 5vw;}
-      header{padding: 2.2rem 2vw 1.35rem 2vw;}
+    .form-card .cta-btn { margin-top: 14px; font-size:1.07rem;}
+    #message {text-align:center;color:var(--urgent);font-weight:700;margin:11px auto 2px auto;}
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+      margin-top: 48px;
+      padding: 29px 7vw 17px 7vw;
+      text-align: center;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-cta {
+      font-size:1.13rem; font-weight:800; color:var(--success);
+      margin-bottom:8px; letter-spacing:0.13em;
+    }
+    .footer-support {
+      margin-top: 13px;
+      color: #a5b4fc;
+      font-size: 0.94rem;
+    }
+    .footer-link {
+      color: #fff; text-decoration: underline; margin:0 6px; font-weight:600;
+    }
+    /* Responsive */
+    @media (max-width: 600px){
+      .grid{grid-template-columns: 1fr;}
+      .container{padding:0 2vw;}
+      .form-card{padding:18px 5vw;}
+      header{padding:1.4rem 2vw 0.95rem 2vw;}
     }
   </style>
 </head>
 <body>
+  <div class="sticky-cta">
+    Enroll Now - Offer for First 50 Students Only! 
+    <span>Only ₹499</span>
+  </div>
   <header>
     <h1>ThatCourse We Made Today</h1>
-    <p>Modern Digital Marketing & Business Mastery by Youthpreneur</p>
+    <p>Premium Digital Marketing & Business Mastery by Youthpreneur</p>
   </header>
   <div class="urgency">
-    Limited-time offer: Enroll now for all 17 modules at just ₹499! <br>Hurry, price will rise to ₹799 soon.
+    <span>🔥 Flash Offer:</span> All 17 modules & bonuses – Only ₹499! <br>Hurry – Price rises to ₹799 soon.
   </div>
+  <ul class="ticks">
+    <li>Instant access to every module after purchase – learn at your pace</li>
+    <li>One-time payment (no hidden charges) for lifetime access</li>
+    <li>Get exclusive bonuses to boost your growth & earning potential</li>
+    <li><span style="color:var(--urgent);font-weight:700;">Risk-free</span>: Full access after easy Razorpay payment</li>
+  </ul>
   <div class="container">
-    <h2>Included Course Modules</h2>
+    <h2>All Course Modules (Highlights)</h2>
     <div class="grid" id="modules"></div>
 
     <h2>Exclusive Bonuses</h2>
@@ -244,34 +278,43 @@
     <div id="message"></div>
   </form>
 
+  <footer>
+    <div class="footer-cta">⏳ Don’t miss out – Unlock your business growth today!</div>
+    <div>Need help? Email support at
+      <a class="footer-link" href="mailto:yuvapreneur@gmail.com">yuvapreneur@gmail.com</a>
+    </div>
+    <div class="footer-support">
+      For queries or assistance, WhatsApp: +91-XXXXXXXXXX
+      <br>© 2025 Youthpreneur. All rights reserved.
+    </div>
+  </footer>
+
 <script>
-  // List all 17 modules with sample descriptions for a real UI
+  // 17 modules with sample highlight text
   const modulesList = [
-    { title: "Marketing Fundamentals", desc: "Understand core marketing concepts and strategies." },
-    { title: "Digital Marketing Basics", desc: "Learn the foundations of digital growth campaigns." },
-    { title: "Website & Online Store Setup", desc: "Step-by-step website and eCommerce setup." },
-    { title: "Google My Business & Local SEO", desc: "Grow your local presence using Google tools." },
-    { title: "Local SEO Strategies", desc: "Make your business discoverable locally." },
-    { title: "Content Marketing", desc: "Craft high-impact, converting content." },
-    { title: "Social Media Marketing", desc: "Engage and grow on all major social platforms." },
-    { title: "Content Creation & AI Use", desc: "Leverage AI for creative business assets." },
-    { title: "Email Marketing & Automation", desc: "Convert with email sequences & automation." },
-    { title: "Capstone Project & Real Application", desc: "Apply all skills in a guided real project." },
-    { title: "Mobile Marketing & App Store Optimization", desc: "Acquire customers with mobile-first strategies." },
-    { title: "E-Commerce Management", desc: "Master store optimization & sales funnels." },
-    { title: "Online Reputation Management", desc: "Manage and protect your brand online." },
-    { title: "Video & Podcast Marketing", desc: "Get results with video/audio content." },
-    { title: "Digital Media Planning & Buying", desc: "Budget and buy digital media with confidence." },
-    { title: "Advanced Sales Strategies", desc: "Close more deals with proven techniques." },
-    { title: "Business Growth & Scaling", desc: "Scale up with smart business models." },
+    { title: "Marketing Fundamentals", desc: "Master timeless principles for market success." },
+    { title: "Digital Marketing Basics", desc: "Step into the world of digital campaigns." },
+    { title: "Website & Online Store Setup", desc: "Launch your powerful business website." },
+    { title: "Google My Business & Local SEO", desc: "Dominate your local area on Google." },
+    { title: "Local SEO Strategies", desc: "Make your business easily found nearby." },
+    { title: "Content Marketing", desc: "Win leads with content that converts." },
+    { title: "Social Media Marketing", desc: "Grow fans and customers via social platforms." },
+    { title: "Content Creation & AI Use", desc: "Use AI for smarter, creative marketing." },
+    { title: "Email Marketing & Automation", desc: "Build loyal clients with email sequences." },
+    { title: "Capstone Project & Real Application", desc: "Apply all skills in a guided project." },
+    { title: "Mobile Marketing & App Store Optimization", desc: "Capture mobile-first customers." },
+    { title: "E-Commerce Management", desc: "Turn your store into a revenue engine." },
+    { title: "Online Reputation Management", desc: "Safeguard your online brand image." },
+    { title: "Video & Podcast Marketing", desc: "Reach wider audiences via audio-visual." },
+    { title: "Digital Media Planning & Buying", desc: "Maximize results from your ad spend." },
+    { title: "Advanced Sales Techniques", desc: "Close deals faster than your competition." },
+    { title: "Business Growth & Scaling", desc: "Level up for long-term expansion." },
   ];
-
   const bonuses = [
-    { title: "Content Marketing Guide", price: 299, desc: "Step up your content creation and conversion." },
-    { title: "SEO Best Practices", price: 399, desc: "Rank higher and get free organic traffic." },
-    { title: "Social Media Tips", price: 250, desc: "Boost engagement with smart, actionable strategies." }
+    { title: "Content Marketing Guide", price: 299, desc: "Improve customer engagement instantly!" },
+    { title: "SEO Best Practices", price: 399, desc: "Rank your website at the top of Google!" },
+    { title: "Social Media Tips", price: 250, desc: "Multiply your social reach and followers!" }
   ];
-
   const modulesDiv = document.getElementById('modules');
   modulesList.forEach(m => {
     const card = document.createElement('div');
@@ -279,7 +322,6 @@
     card.innerHTML = `<h3>${m.title}</h3><div class="desc">${m.desc}</div>`;
     modulesDiv.appendChild(card);
   });
-
   const bonusesDiv = document.getElementById('bonuses');
   bonuses.forEach(b => {
     const card = document.createElement('div');
@@ -289,10 +331,7 @@
       <button class="cta-btn" onclick="buyBonus(${b.price})">Buy Bonus</button>`;
     bonusesDiv.appendChild(card);
   });
-
-  // Razorpay
   const razorpayPageUrl = "https://rzp.io/rzp/rD8ThUeD";
-
   document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const fields = ['name','phone','email','profession','city','state','password'];
@@ -302,17 +341,15 @@
         return;
       }
     }
-    // TODO: Save data securely to backend if needed!
     window.open(razorpayPageUrl, "_blank");
   });
-
   function buyBonus(price) {
     window.open(razorpayPageUrl, "_blank");
   }
   function showMessage(msg) {
     const m = document.getElementById('message');
     m.textContent = msg;
-    setTimeout(()=>{ m.textContent = ""; }, 3800);
+    setTimeout(()=>{ m.textContent = ""; }, 3200);
   }
 </script>
 </body>
