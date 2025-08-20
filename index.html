@@ -3,354 +3,196 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>ThatCourse We Made Today – Youthpreneur</title>
+  <title>ThatCourse – Youthpreneur</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #7c3aed;        /* Vivid purple */
-      --primary-dark: #5b21b6;   /* Deeper purple */
-      --accent: #f3e8ff;         /* Pastel purple */
-      --cta-bg: #a78bfa;         /* CTA button */
-      --urgent: #ec4899;         /* Pink/purple urgency */
-      --success: #22d3ee;
+      --primary: #6a0dad;        /* Purple */
+      --primary-dark: #4b0082;   /* Dark Purple */
       --white: #fff;
       --text: #222;
-      --card-shadow: 0 3px 24px rgba(124,58,237,0.08);
+      --shadow: 0 3px 24px rgba(106,13,173,0.12);
     }
+
     body {
-      font-family: 'Inter', 'Roboto', Arial, sans-serif;
-      background: var(--accent);
+      font-family: 'Inter','Roboto',sans-serif;
+      background: var(--white);
       color: var(--text);
       margin: 0; padding: 0;
       line-height: 1.7;
     }
+
     .sticky-cta {
       position: sticky;
       top: 0; z-index:1000;
-      background: linear-gradient(90deg,var(--primary),var(--primary-dark));
+      background: var(--primary);
       color: var(--white);
       text-align: center;
-      padding: 9px 2vw 6px 2vw;
+      padding: 10px;
       font-weight: 700;
-      font-size: 1.06rem;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-    .sticky-cta span {
-      background: var(--white);
-      color: var(--primary-dark);
-      border-radius: 17px;
-      padding: 5px 11px;
-      margin-left: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
+
     header {
-      background: linear-gradient(95deg, #ede9fe 40%, #f3e8ff 90%);
+      background: #f4f0fa;
       text-align: center;
-      padding: 3.2rem 10px 2.3rem 10px;
+      padding: 3rem 1rem 2rem 1rem;
       border-bottom: 2px solid var(--primary-dark);
-      box-shadow: 0 2px 14px rgba(124,58,237,0.04);
     }
+
     header h1 {
       color: var(--primary-dark);
       font-size: 2.3rem;
-      margin: 0 0 9px 0;
+      margin: 0 0 10px 0;
       font-weight: 800;
-      letter-spacing: 1.3px;
     }
     header p {
-      color: #5d5d5d;
-      font-size: 1.18rem;
-      margin-top: 7px;
-      font-weight: 500;
+      color: #555;
+      font-size: 1.1rem;
     }
+
     .urgency {
-      color: var(--urgent);
-      background: #fdf2f8;
+      color: var(--primary-dark);
+      background: #f4f0fa;
       font-weight: 700;
-      font-size: 1.13rem;
+      font-size: 1.1rem;
       text-align: center;
-      border-radius: 21px;
-      margin: 22px auto 6px auto;
-      padding: 13px 2vw 13px 2vw;
-      max-width: 545px;
-      border: 2px solid var(--urgent);
-      box-shadow: 0 2px 9px rgba(236,72,153,0.09);
-      letter-spacing: 0.1px;
+      border-radius: 20px;
+      margin: 20px auto;
+      padding: 15px;
+      max-width: 600px;
+      border: 2px solid var(--primary);
+      box-shadow: var(--shadow);
     }
+
     .container {
       width: 100%;
       max-width: 900px;
-      margin: 32px auto 0 auto;
+      margin: 32px auto;
       padding: 0 2vw;
-      box-sizing: border-box;
     }
+
     h2 {
       color: var(--primary-dark);
       font-weight: 800;
-      font-size: 1.41rem;
+      font-size: 1.4rem;
       border-left: 5px solid var(--primary);
-      letter-spacing: 0.2px;
       padding-left: 14px;
-      margin:30px 0 17px 0;
+      margin: 30px 0 20px 0;
     }
-    /* MODULE CARD GRID */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px 23px; }
+
+    /* Cards */
+    .grid {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
     .card {
       background: var(--white);
-      border-radius: 13px;
-      box-shadow: var(--card-shadow);
-      padding: 26px 19px 21px 19px;
-      min-height: 134px;
-      display: flex; flex-direction: column; gap: 0.7rem;
-      position: relative;
-      border-top: 3.2px solid var(--primary);
-      transition: box-shadow 0.13s, transform 0.14s;
-      opacity: 0.97; 
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      min-height: 130px;
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between;
+      border-top: 3px solid var(--primary);
+      transition: transform 0.2s;
     }
-    .card:hover { box-shadow: 0 7px 24px rgba(124,58,237,0.23); transform:translateY(-3px) scale(1.03);}
-    .card h3 { font-size:1.11rem; color:var(--primary); margin:0 0 7px 0; font-weight:700;letter-spacing:0.7px; }
-    .card .desc { color: #474747;font-size:1.01rem;margin-bottom:4px;}
-    .price {
-      position:absolute; bottom: 14px; right:15px;
-      font-weight:700; color: var(--primary-dark);
-      background: var(--accent);
-      font-size:1rem; padding:4px 13px; border-radius:12px;
-      letter-spacing: 0.4px;
-    }
+
+    .card:hover { transform: translateY(-3px); }
+    .card h3 { color: var(--primary); font-size: 1.1rem; margin: 0 0 8px; }
+    .card .desc { color: #444; font-size: 1rem; }
+
     .cta-btn {
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      color: #fff;
+      background: var(--primary);
+      color: var(--white);
       border: none;
-      border-radius: 7px;
-      padding: 9px 0;
-      margin-top: 14px;
-      font-size: 1.08rem;
-      font-family: inherit;
-      font-weight: 800;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
-      letter-spacing: 0.3px;
       width: 100%;
-      transition: background 0.14s, box-shadow 0.14s;
     }
-    .cta-btn:hover { background:linear-gradient(90deg,var(--urgent),var(--primary)); box-shadow:0 3px 28px rgba(236,72,153,0.12);}
-    .ticks {
-      margin: 17px auto 18px auto;
-      max-width: 660px;
-      padding: 2px 15px;
-      font-size: 1.13rem;
-      color:#444;
-    }
-    .ticks li {
-      list-style: none;
-      background: url('https://img.icons8.com/fluency/24/ok.png') 0 3px no-repeat;
-      padding-left: 36px;
-      margin-bottom: 5px;
-      font-weight: 500;
-      min-height: 27px;
-    }
-    /* Form Card */
+    .cta-btn:hover { background: var(--primary-dark); }
+
+    /* Form */
     .form-card {
       background: var(--white);
-      box-shadow: var(--card-shadow);
-      border-radius: 13px;
-      max-width: 410px;
-      margin: 39px auto 0 auto;
-      padding: 30px 25px 17px 25px;
-      margin-bottom:20px;
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      max-width: 420px;
+      margin: 40px auto;
+      padding: 25px;
     }
     .form-group {
-      position: relative; margin-bottom:16px;
+      margin-bottom: 16px;
     }
     .form-group input {
-      width:100%; padding:13px 9px 9px 10px;
-      font-size:1rem; border:1.4px solid #eadffa;
-      border-radius: 4px; outline:none; background: #faf7ff;
-      font-family: inherit;
-      font-weight:600;
-      color: #3b2061;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1.4px solid #d1c4e9;
+      border-radius: 4px;
+      outline: none;
+      background: #faf7ff;
     }
-    .form-group label {
-      position: absolute; top: 10px; left: 13px;
-      color: #a78bfa; font-size:0.99rem; pointer-events:none;
-      transition: all .2s;
-      background: transparent;
-      letter-spacing:0.03em;
-      font-weight:600;
-    }
-    .form-group input:focus + label,
-    .form-group input:not(:placeholder-shown) + label {
-      top: -12px; left: 7px; font-size: 0.85rem;
-      color: var(--primary-dark); background: var(--white); padding: 0 4px;
-    }
-    .form-card .cta-btn { margin-top: 14px; font-size:1.07rem;}
-    #message {text-align:center;color:var(--urgent);font-weight:700;margin:11px auto 2px auto;}
+
+    #message { text-align: center; color: var(--primary-dark); font-weight: 700; margin-top: 10px; }
+
     /* Footer */
     footer {
-      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      background: var(--primary-dark);
       color: var(--white);
-      margin-top: 48px;
-      padding: 29px 7vw 17px 7vw;
+      padding: 25px;
       text-align: center;
       font-size: 1rem;
-      letter-spacing: 0.08em;
     }
-    .footer-cta {
-      font-size:1.13rem; font-weight:800; color:var(--success);
-      margin-bottom:8px; letter-spacing:0.13em;
-    }
-    .footer-support {
-      margin-top: 13px;
-      color: #a5b4fc;
-      font-size: 0.94rem;
-    }
-    .footer-link {
-      color: #fff; text-decoration: underline; margin:0 6px; font-weight:600;
-    }
-    /* Responsive */
-    @media (max-width: 600px){
-      .grid{grid-template-columns: 1fr;}
-      .container{padding:0 2vw;}
-      .form-card{padding:18px 5vw;}
-      header{padding:1.4rem 2vw 0.95rem 2vw;}
-    }
+    .footer-link { color: var(--white); text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="sticky-cta">
-    Enroll Now - Offer for First 50 Students Only! 
-    <span>Only ₹499</span>
+    Enroll Now – Limited Offer!
   </div>
+
   <header>
-    <h1>ThatCourse We Made Today</h1>
-    <p>Premium Digital Marketing & Business Mastery by Youthpreneur</p>
+    <h1>ThatCourse</h1>
+    <p>Premium Digital Marketing & Business Mastery</p>
   </header>
+
   <div class="urgency">
-    <span>🔥 Flash Offer:</span> All 17 modules & bonuses – Only ₹499! <br>Hurry – Price rises to ₹799 soon.
+    All 17 Modules & Bonuses – Only ₹499! Hurry before price increases.
   </div>
-  <ul class="ticks">
-    <li>Instant access to every module after purchase – learn at your pace</li>
-    <li>One-time payment (no hidden charges) for lifetime access</li>
-    <li>Get exclusive bonuses to boost your growth & earning potential</li>
-    <li><span style="color:var(--urgent);font-weight:700;">Risk-free</span>: Full access after easy Razorpay payment</li>
-  </ul>
+
   <div class="container">
-    <h2>All Course Modules (Highlights)</h2>
-    <div class="grid" id="modules"></div>
-
-    <h2>Exclusive Bonuses</h2>
-    <div class="grid" id="bonuses"></div>
+    <h2>Course Modules</h2>
+    <div class="grid">
+      <div class="card"><h3>Marketing Fundamentals</h3><div class="desc">Master principles of success.</div></div>
+      <div class="card"><h3>Digital Marketing Basics</h3><div class="desc">Step into campaigns.</div></div>
+    </div>
   </div>
 
-  <form class="form-card" id="registerForm" autocomplete="off">
-    <h2>Register / Login to Enroll</h2>
-    <div class="form-group">
-      <input type="text" id="name" required placeholder=" "/>
-      <label for="name">Full Name</label>
-    </div>
-    <div class="form-group">
-      <input type="tel" id="phone" required placeholder=" "/>
-      <label for="phone">Phone Number</label>
-    </div>
-    <div class="form-group">
-      <input type="email" id="email" required placeholder=" "/>
-      <label for="email">Email</label>
-    </div>
-    <div class="form-group">
-      <input type="text" id="profession" required placeholder=" "/>
-      <label for="profession">Profession</label>
-    </div>
-    <div class="form-group">
-      <input type="text" id="city" required placeholder=" "/>
-      <label for="city">City</label>
-    </div>
-    <div class="form-group">
-      <input type="text" id="state" required placeholder=" "/>
-      <label for="state">State</label>
-    </div>
-    <div class="form-group">
-      <input type="password" id="password" required placeholder=" "/>
-      <label for="password">Create Password</label>
-    </div>
-    <button type="submit" class="cta-btn">Register and Buy Now</button>
+  <form class="form-card">
+    <h2>Register / Login</h2>
+    <div class="form-group"><input type="text" placeholder="Full Name"></div>
+    <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+    <div class="form-group"><input type="email" placeholder="Email"></div>
+    <div class="form-group"><input type="text" placeholder="Profession"></div>
+    <div class="form-group"><input type="text" placeholder="City"></div>
+    <div class="form-group"><input type="text" placeholder="State"></div>
+    <div class="form-group"><input type="password" placeholder="Create Password"></div>
+    <button class="cta-btn">Register and Buy Now</button>
     <div id="message"></div>
   </form>
 
   <footer>
-    <div class="footer-cta">⏳ Don’t miss out – Unlock your business growth today!</div>
-    <div>Need help? Email support at
-      <a class="footer-link" href="mailto:yuvapreneur@gmail.com">yuvapreneur@gmail.com</a>
-    </div>
-    <div class="footer-support">
-      For queries or assistance, WhatsApp: +91-XXXXXXXXXX
-      <br>© 2025 Youthpreneur. All rights reserved.
-    </div>
+    Need help? Email <a href="mailto:support@example.com" class="footer-link">support@example.com</a>
+    <br>© 2025 Youthpreneur
   </footer>
-
-<script>
-  // 17 modules with sample highlight text
-  const modulesList = [
-    { title: "Marketing Fundamentals", desc: "Master timeless principles for market success." },
-    { title: "Digital Marketing Basics", desc: "Step into the world of digital campaigns." },
-    { title: "Website & Online Store Setup", desc: "Launch your powerful business website." },
-    { title: "Google My Business & Local SEO", desc: "Dominate your local area on Google." },
-    { title: "Local SEO Strategies", desc: "Make your business easily found nearby." },
-    { title: "Content Marketing", desc: "Win leads with content that converts." },
-    { title: "Social Media Marketing", desc: "Grow fans and customers via social platforms." },
-    { title: "Content Creation & AI Use", desc: "Use AI for smarter, creative marketing." },
-    { title: "Email Marketing & Automation", desc: "Build loyal clients with email sequences." },
-    { title: "Capstone Project & Real Application", desc: "Apply all skills in a guided project." },
-    { title: "Mobile Marketing & App Store Optimization", desc: "Capture mobile-first customers." },
-    { title: "E-Commerce Management", desc: "Turn your store into a revenue engine." },
-    { title: "Online Reputation Management", desc: "Safeguard your online brand image." },
-    { title: "Video & Podcast Marketing", desc: "Reach wider audiences via audio-visual." },
-    { title: "Digital Media Planning & Buying", desc: "Maximize results from your ad spend." },
-    { title: "Advanced Sales Techniques", desc: "Close deals faster than your competition." },
-    { title: "Business Growth & Scaling", desc: "Level up for long-term expansion." },
-  ];
-  const bonuses = [
-    { title: "Content Marketing Guide", price: 299, desc: "Improve customer engagement instantly!" },
-    { title: "SEO Best Practices", price: 399, desc: "Rank your website at the top of Google!" },
-    { title: "Social Media Tips", price: 250, desc: "Multiply your social reach and followers!" }
-  ];
-  const modulesDiv = document.getElementById('modules');
-  modulesList.forEach(m => {
-    const card = document.createElement('div');
-    card.className = "card";
-    card.innerHTML = `<h3>${m.title}</h3><div class="desc">${m.desc}</div>`;
-    modulesDiv.appendChild(card);
-  });
-  const bonusesDiv = document.getElementById('bonuses');
-  bonuses.forEach(b => {
-    const card = document.createElement('div');
-    card.className = "card";
-    card.innerHTML = `<h3>${b.title}</h3><div class="desc">${b.desc}</div>
-      <span class="price">₹${b.price}</span>
-      <button class="cta-btn" onclick="buyBonus(${b.price})">Buy Bonus</button>`;
-    bonusesDiv.appendChild(card);
-  });
-  const razorpayPageUrl = "https://rzp.io/rzp/rD8ThUeD";
-  document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const fields = ['name','phone','email','profession','city','state','password'];
-    for (const id of fields) {
-      if (!document.getElementById(id).value.trim()) {
-        showMessage('Please fill all fields.');
-        return;
-      }
-    }
-    window.open(razorpayPageUrl, "_blank");
-  });
-  function buyBonus(price) {
-    window.open(razorpayPageUrl, "_blank");
-  }
-  function showMessage(msg) {
-    const m = document.getElementById('message');
-    m.textContent = msg;
-    setTimeout(()=>{ m.textContent = ""; }, 3200);
-  }
-</script>
 </body>
 </html>
