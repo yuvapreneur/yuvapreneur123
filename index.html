@@ -4,134 +4,194 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ThatCourse We Made Today – Youthpreneur</title>
+
 <style>
+  :root {
+    --bg: #fffbea;
+    --primary: #fbbf24; /* Yellow */
+    --primary-dark: #b45309;
+    --text-dark: #222;
+    --text-muted: #555;
+    --btn-bg: #fbbf24;
+    --btn-hover: #b45309;
+    --border: #f5deb3;
+    --card-bg: #fff;
+  }
   body {
-    font-family: Arial, sans-serif;
     margin: 0; padding: 0;
-    background: #fff;
-    color: #222;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-dark);
     line-height: 1.6;
   }
   header {
-    background: #000;
+    background-color: var(--primary);
+    color: #000;
     padding: 2rem 1rem;
     text-align: center;
+    user-select: none;
   }
   header h1 {
-    color: #ffcc00;
-    margin: 0 0 0.3rem 0;
+    margin: 0;
     font-size: 2.6rem;
-    letter-spacing: 2px;
+    font-weight: 700;
   }
   header p {
-    color: #f5f5f5;
-    font-size: 1.1rem;
-    margin: 0;
+    margin: 0.5rem 0 0 0;
+    font-weight: 600;
   }
-  .urgency {
-    background: #ffeb3b;
-    color: #000;
-    max-width: 700px;
-    margin: 1.5rem auto;
-    padding: 1rem;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border-radius: 6px;
+  .sticky-enroll {
+    position: sticky;
+    top: 0;
+    background: var(--primary);
+    padding: 10px 1rem;
     text-align: center;
-    box-shadow: 1px 2px 8px rgba(0,0,0,0.15);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 100;
   }
   main {
     max-width: 900px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
+  .urgency {
+    background-color: #fef3c7;
+    border-left: 8px solid var(--primary-dark);
+    padding: 1rem;
+    font-weight: 800;
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    user-select: none;
+  }
   h2 {
-    color: #ffcc00;
-    border-left: 6px solid #ffcc00;
-    padding-left: 10px;
-    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--primary);
+    padding-left: 12px;
     font-weight: 700;
-    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    user-select: none;
   }
   ol {
-    padding-left: 20px;
+    padding-left: 22px;
     margin-bottom: 2.5rem;
   }
   ol li {
     margin-bottom: 1rem;
     font-size: 1.1rem;
   }
-  section.qna {
-    background: #fffbcc;
-    padding: 1.3rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 1px 3px 8px rgba(0,0,0,0.12);
+  .bonus-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-bottom: 3rem;
   }
-  section.qna h3 {
-    color: #b38f00;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-  }
-  section.qna p {
-    display: none;
-    margin-top: 0;
-    font-size: 1rem;
-    color: #4a4600;
-    line-height: 1.4;
-  }
-  .form-container {
-    max-width: 450px;
-    margin: 0 auto 4rem;
-    padding: 2rem;
-    border: 2px solid #ffcc00;
+  .bonus-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    padding: 1rem 1.25rem;
     border-radius: 8px;
-    background: #fffbe6;
+    flex: 1 1 280px;
+    box-shadow: 0 3px 10px #f9f6e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bonus-card strong {
+    color: var(--primary-dark);
+    font-size: 1.15rem;
+  }
+  .bonus-card small {
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    flex-grow: 1;
+  }
+  button {
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: black;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: var(--btn-hover);
+    color: white;
+  }
+  form {
+    max-width: 400px;
+    margin: 0 auto 4rem;
+    background: var(--card-bg);
+    padding: 2rem 2rem 2.5rem 2rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 5px 12px #fef7d8;
+    user-select: none;
   }
   label {
     display: block;
     font-weight: 700;
-    margin-bottom: 6px;
-    color: #000;
+    margin-bottom: 0.4rem;
   }
   input[type=text], input[type=tel], input[type=email], input[type=password] {
     width: 100%;
-    padding: 9px 12px;
-    margin-bottom: 15px;
-    border: 1.5px solid #ffcc00;
-    border-radius: 5px;
+    padding: 10px 12px;
     font-size: 1rem;
-  }
-  button {
-    background: #ffcc00;
-    border: none;
-    width: 100%;
-    padding: 12px 0;
-    font-weight: 900;
-    font-size: 1.3rem;
-    color: #000;
     border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    border: 1.3px solid var(--border);
+    margin-bottom: 1.2rem;
+    outline-offset: 2px;
   }
-  button:hover, button:focus {
-    background: #ddb700;
+  .qna-section {
+    max-width: 650px;
+    margin: 0 auto 3rem auto;
+    background: #fffbea;
+    border-left: 6px solid var(--primary);
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+  }
+  .qna-section h3 {
+    cursor: pointer;
+    margin: 1rem 0 0.25rem 0;
+    user-select: none;
+    color: var(--primary-dark);
+  }
+  .qna-section p {
+    margin: 0 0 0.7rem 0;
+    line-height: 1.4;
+    color: var(--text-muted);
+    display: none;
   }
   footer {
     background: #000;
-    color: #999;
+    color: #ccc;
     text-align: center;
-    padding: 1.75rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
     font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    user-select: none;
   }
   footer a {
-    color: #ffcc00;
+    color: var(--primary);
     text-decoration: none;
     font-weight: 700;
   }
   footer a:hover {
     text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .bonus-list {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
   }
 </style>
 </head>
@@ -142,8 +202,12 @@
   <p>Youthpreneur — Digital Marketing & Business Growth Mastery</p>
 </header>
 
-<div class="urgency" role="alert" aria-live="polite">
-  Limited time offer: All 17 course modules + bonuses for only ₹499! Price increases to ₹799 soon. Enroll now!
+<div class="sticky-enroll" role="button" tabindex="0" onclick="document.getElementById('registerForm').scrollIntoView({behavior: 'smooth'});">
+  Enroll Now for ₹499 — Hurry! Price rises to ₹799 soon.
+</div>
+
+<div class="urgency" role="alert">
+  Limited Time Offer: Get all 17 Modules + Bonuses for ₹499 only!
 </div>
 
 <main>
@@ -168,105 +232,115 @@
     <li>Business Growth & Scaling</li>
   </ol>
 
-  <section class="qna" aria-label="Frequently Asked Questions">
-    <h3 tabindex="0">Q: How do I access the course after payment?</h3>
-    <p>The course materials will be accessible immediately after successful payment via your registered account.</p>
-    
-    <h3 tabindex="0">Q: What payment methods do you accept?</h3>
-    <p>We accept all major debit/credit cards, UPI, and net banking via Razorpay gateway.</p>
-    
-    <h3 tabindex="0">Q: Can I download the course PDFs?</h3>
-    <p>Yes, once enrolled, you can download the PDF modules directly from your account.</p>
+  <h2>Exclusive Bonuses</h2>
+  <div class="bonus-list">
+    <div class="bonus-card">
+      <strong>Content Marketing Guide</strong>
+      <small>Learn how to create engaging content that sells.</small>
+      <button onclick="buyBonus(299)">Buy Bonus for ₹299</button>
+    </div>
+    <div class="bonus-card">
+      <strong>SEO Best Practices</strong>
+      <small>Boost your Google rankings with proven strategies.</small>
+      <button onclick="buyBonus(399)">Buy Bonus for ₹399</button>
+    </div>
+    <div class="bonus-card">
+      <strong>Social Media Tips</strong>
+      <small>Maximize your reach and engagement on social platforms.</small>
+      <button onclick="buyBonus(250)">Buy Bonus for ₹250</button>
+    </div>
+  </div>
 
-    <h3 tabindex="0">Q: Is there a refund policy?</h3>
-    <p>We offer refunds within 7 days of purchase if you are unsatisfied with the course.</p>
+  <section class="qna-section" aria-label="Frequently Asked Questions">
+    <h2>Q &amp; A</h2>
+    <h3 tabindex="0" onclick="toggleAnswer(this)">Can I download the PDFs?</h3>
+    <p>No. The course is read-only inside your account to protect content. Downloads and printing are disabled.</p>
+
+    <h3 tabindex="0" onclick="toggleAnswer(this)">How do modules unlock?</h3>
+    <p>Modules unlock sequentially after each one is completed, starting immediately after payment.</p>
+
+    <h3 tabindex="0" onclick="toggleAnswer(this)">Is the ₹499 price permanent?</h3>
+    <p>Only for early buyers during the offer period. Price increases to ₹799 after the timer ends.</p>
+
+    <h3 tabindex="0" onclick="toggleAnswer(this)">Can I reset my password?</h3>
+    <p>Yes, via “Forgot password” you can receive an OTP by phone or email and reset your password.</p>
+
+    <h3 tabindex="0" onclick="toggleAnswer(this)">Is payment safe?</h3>
+    <p>Yes, payments use Razorpay’s secure gateway. You will be redirected back to your account on success.</p>
   </section>
 
-  <section class="form-container">
+  <section style="max-width: 410px; margin: 3rem auto;">
     <form id="registerForm" autocomplete="off" aria-label="Registration Form">
-      <label for="name">Full Name *</label>
+      <label for="name">Full Name*</label>
       <input id="name" type="text" required />
 
-      <label for="phone">Phone Number *</label>
+      <label for="phone">Phone Number*</label>
       <input id="phone" type="tel" required />
 
-      <label for="email">Email *</label>
+      <label for="email">Email*</label>
       <input id="email" type="email" required />
 
-      <label for="profession">Profession *</label>
+      <label for="profession">Profession*</label>
       <input id="profession" type="text" required />
 
-      <label for="city">City *</label>
+      <label for="city">City*</label>
       <input id="city" type="text" required />
 
-      <label for="state">State *</label>
+      <label for="state">State*</label>
       <input id="state" type="text" required />
 
-      <label for="password">Create Password *</label>
+      <label for="password">Create Password*</label>
       <input id="password" type="password" required />
 
       <button type="submit" id="submitBtn">Submit</button>
     </form>
+    <div id="message" aria-live="polite" style="margin-top: 12px; text-align:center; color:#b45309; font-weight:600;"></div>
   </section>
 </main>
 
 <footer>
-  Need Help? Contact us at <a href="mailto:yuvapreneur@gmail.com">yuvapreneur@gmail.com</a> or WhatsApp: +91-XXXXXXXXXX<br />
+  Need help? Contact <a href="mailto:yuvapreneur@gmail.com">yuvapreneur@gmail.com</a> or WhatsApp: +91-XXXXXXXXXX<br />
   © 2025 Youthpreneur. All rights reserved.
 </footer>
 
 <script>
-  const razrpayPage = "https://rzp.io/rzp/rD8ThUeD";
+  function toggleAnswer(el) {
+    const next = el.nextElementSibling;
+    if (next.style.display === "block") next.style.display = "none";
+    else next.style.display = "block";
+  }
 
-  document.getElementById("registerForm").addEventListener("submit", function (e) {
+  const razorpayUrl = "https://rzp.io/rzp/rD8ThUeD";
+
+  document.getElementById("registerForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    // Change submit button text to Enroll Now
-    const submitBtn = document.getElementById("submitBtn");
-    submitBtn.textContent = "Enroll Now";
-    submitBtn.disabled = true;
 
-    // Collect form data for backend or future use
-    const formData = {
-      name: this.name.value,
-      phone: this.phone.value,
-      email: this.email.value,
-      profession: this.profession.value,
-      city: this.city.value,
-      state: this.state.value,
-      password: this.password.value
-    };
+    const inputs = ["name", "phone", "email", "profession", "city", "state", "password"];
+    for (let id of inputs) {
+      if (!document.getElementById(id).value.trim()) {
+        showMessage("Please fill all fields.");
+        return;
+      }
+    }
 
-    // Redirect to Razorpay payment page
-    window.location.href = razrpayPage;
+    // Change button text
+    const btn = document.getElementById("submitBtn");
+    btn.textContent = "Enroll Now";
+    btn.disabled = true;
+
+    // Redirect to Razorpay
+    window.location.href = razorpayUrl;
   });
 
-  // simulate product pdf download on redirect back
-  window.onload = () => {
-    if (
-      window.location.href === "https://www.yuvapreneur.in/" ||
-      window.location.href === "https://www.yuvapreneur.in/index.html"
-    ) {
-      // Create hidden link and trigger download
-      const link = document.createElement("a");
-      link.href = "your-course.pdf"; // Replace with your actual PDF path
-      link.download = "ThatCourse-Modules.pdf";
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    }
-  };
-
-  // Accessibility: Q&A toggle
-  document.querySelectorAll(".qna h3").forEach((question) =>
-    question.addEventListener("click", () => {
-      const p = question.nextElementSibling;
-      if (p.style.display === "block") {
-        p.style.display = "none";
-      } else {
-        p.style.display = "block";
-      }
-    })
-  );
+  function buyBonus(price) {
+    alert("Please enroll in the main course first.");
+  }
+  
+  function showMessage(msg) {
+    const msgDiv = document.getElementById("message");
+    msgDiv.textContent = msg;
+    setTimeout(() => (msgDiv.textContent = ""), 4000);
+  }
 </script>
 
 </body>
