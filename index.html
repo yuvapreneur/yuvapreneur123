@@ -3,251 +3,316 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>ThatCourse We Made Today - Youthpreneur</title>
+  <title>ThatCourse We Made Today – Youthpreneur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #faf5e9; /* Cream */
-      color: #222;
-      margin: 0;
-      padding: 0;
-      line-height: 1.7;
+    :root {
+      --primary: #b22222;
+      --secondary: #cc3333;
+      --cream-bg: #faf5e9;
+      --light-peach: #fff5f2;
+      --accent: #e64c3c;
+      --urgent: #cc0000;
+      --text: #2d2d2d;
+      --dark: #161718;
+      --shadow: 0 4px 24px rgba(179,34,34,0.10);
+      --card-bg: #fff;
+    }
+    html, body {
+      font-family: 'Inter', 'Roboto', Arial, sans-serif;
+      background: var(--cream-bg);
+      color: var(--text);
+      margin: 0; padding: 0;
+      min-height: 100vh;
     }
     header {
+      background: linear-gradient(90deg, #fff5f2 20%, #faf5e9 80%);
       text-align: center;
-      padding: 32px 0 8px 0;
-      margin-bottom: 12px;
-      background: #fff4f2;
-      border-bottom: 4px solid #cc3333;
+      padding: 3.25rem 10px 2.3rem 10px;
+      border-bottom: 2px solid var(--primary);
+      box-shadow: 0 2px 16px rgba(179,34,34,0.03);
     }
     header h1 {
-      color: #b22222;
-      font-size: 2.25rem;
-      margin: 4px 0 12px 0;
+      color: var(--primary);
+      font-size: 2.6rem;
+      margin: 0 0 12px 0;
       font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 110%;
     }
     header p {
-      color: #555;
+      color: #5d5d5d;
+      font-size: 1.2rem;
       font-weight: 500;
-      font-size: 1.1rem;
+      letter-spacing: 0.2px;
     }
     .urgency {
-      color: #cc0000;
-      background: #ffe6e6;
-      margin: 30px auto 0 auto;
-      max-width: 630px;
-      padding: 15px 20px;
-      border-left: 7px solid #b22222;
-      border-radius: 5px;
-      font-size: 1.2rem;
+      background: linear-gradient(90deg, #ffeaea 70%, #faf5e9);
+      color: var(--urgent);
+      text-align: center;
       font-weight: 700;
-      box-shadow: 0 3px 10px rgba(204,0,0,0.04);
-    }
-    section {
-      max-width: 700px;
-      margin: 30px auto 18px auto;
-      background: #fff;
-      padding: 24px 30px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.09);
-      border-radius: 8px;
-    }
-    h2 {
-      color: #b22222;
-      font-weight: 700;
-      margin-top: 0;
-      font-size: 1.35rem;
-      border-bottom: 2px solid #cc3333;
-      padding-bottom: 5px;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-    }
-    ol {
-      padding-left: 23px;
-    }
-    li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-    .bonus-item {
-      background: #fff8f8;
-      border: 1px solid #fde4e1;
-      padding: 15px 20px;
-      border-radius: 5px;
-      margin-bottom: 14px;
-    }
-    .bonus-item strong {
-      color: #b22222;
       font-size: 1.18rem;
-      font-weight: 700;
-    }
-    .bonus-item small {
-      color: #666;
-      font-size: 0.97rem;
-      display: block;
-      margin-top: 5px;
-    }
-    button {
-      background-color: #b22222;
-      color: white;
-      border: none;
-      padding: 9px 18px;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-      font-weight: 600;
+      padding: 14px 0 6px 0;
+      margin: 0 auto 18px auto;
+      border-radius: 22px;
+      border-bottom: 2.5px solid var(--urgent);
+      max-width: 560px;
+      box-shadow: 0 2px 18px rgba(204,0,0,0.08);
       letter-spacing: 0.2px;
       transition: background 0.2s;
     }
-    button:hover {
-      background-color: #cc3333;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-    }
-    label {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 2px;
-    }
-    input[type=text], input[type=tel], input[type=email], input[type=password] {
-      padding: 9px;
-      border-radius: 3px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 24px auto 0 auto;
+      padding: 0 2vw;
       box-sizing: border-box;
     }
-    #message {
-      text-align: center;
-      margin-top: 15px;
-      color: #cc0000;
-      font-weight: 600;
+    /* --- Modules section --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px 22px;
+      margin-bottom: 28px;
     }
-    @media (max-width: 500px) {
-      header h1 { font-size: 1.5rem; }
-      section { padding: 14px 6px; }
-      .urgency { padding: 8px 10px; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 26px 19px 18px 19px;
+      min-height: 126px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      transition: box-shadow 0.15s;
+      border-top: 3px solid var(--primary);
+      position: relative;
+    }
+    .card h3 {
+      font-size: 1.13rem;
+      color: var(--primary);
+      margin: 0 0 7px 0;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+    .card .desc { color: #474747; font-size:1.03rem; margin-bottom: 4px; }
+    .price {
+      position: absolute;
+      bottom: 14px; right: 18px;
+      font-weight: 700;
+      color: var(--secondary);
+      background: #FFF3F1;
+      padding: 3px 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      letter-spacing: 0.4px;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 10px 0;
+      margin-top: 13px;
+      font-size: 1.08rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(179,34,34,0.08);
+      letter-spacing: 0.3px;
+      transition: background 0.14s;
+      width: 100%;
+    }
+    .cta-btn:hover { background: linear-gradient(99deg, #cd2a2a, #e85c50);}
+    /* --- Section headings --- */
+    h2 {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing: 0.2px;
+      margin: 32px 0 18px 0;
+      border-left: 5px solid var(--primary);
+      padding-left: 11px;
+    }
+    .section-subtitle {
+      color: #555;
+      font-size: 1rem;
+      margin-left: 16px;
+      margin-top: -14px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    /* --- Form Styles --- */
+    .form-card {
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      border-radius: 13px;
+      padding: 36px 25px 29px 25px;
+      max-width: 410px;
+      margin: 32px auto 0 auto;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 18px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 13px 10px 9px 10px;
+      font-size: 1rem;
+      border: 1.2px solid #e5e3e3;
+      border-radius: 4px;
+      outline: none;
+      background: #f9f7f6;
+      font-family: inherit;
+    }
+    .form-group label {
+      position: absolute;
+      top: 10px;
+      left: 13px;
+      color: #989999;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: all .2s;
+      background: transparent;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 7px;
+      font-size: 0.86rem;
+      color: var(--secondary);
+      background: var(--card-bg);
+      padding: 0 4px;
+    }
+    .form-card .cta-btn { margin-top: 12px;}
+    #message { text-align:center; color:var(--urgent); font-weight:600; margin-top:11px;}
+    @media (max-width: 640px){
+      .grid {grid-template-columns: 1fr;}
+      .container {padding:0 2vw;}
+      .form-card {padding:18px 5vw;}
+      header{padding: 2.2rem 2vw 1.35rem 2vw;}
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>ThatCourse We Made Today<br>Youthpreneur</h1>
-  <p>Master Digital Marketing & Business Growth</p>
-</header>
-
-<div class="urgency">
-  Limited-time offer: all 17 modules for only ₹499! Hurry, price will increase to ₹799 soon.
-</div>
-
-<section>
-  <h2>What You’ll Learn (17 Modules)</h2>
-  <ol>
-    <li>Marketing Fundamentals</li>
-    <li>Digital Marketing Basics</li>
-    <li>Website and Online Store Setup</li>
-    <li>Google My Business & Local SEO</li>
-    <li>Local SEO Strategies</li>
-    <li>Content Marketing</li>
-    <li>Social Media Marketing</li>
-    <li>Content Creation & AI Use</li>
-    <li>Email Marketing & Automation</li>
-    <li>Capstone Project & Real Application</li>
-    <li>Mobile Marketing & App Store Optimization</li>
-    <li>E-Commerce Management</li>
-    <li>Online Reputation Management</li>
-    <li>Video & Podcast Marketing</li>
-    <li>Digital Media Planning & Buying</li>
-    <li>Advanced Sales Strategies</li>
-    <li>Business Growth & Scaling</li>
-  </ol>
-</section>
-
-<section>
-  <h2>Exclusive Bonuses</h2>
-  <div class="bonus-item">
-    <strong>Content Marketing Guide</strong>
-    <small>Master the art of crafting engaging content.</small>
-    <button onclick="buyBonus(101, 299)">Buy for ₹299</button>
+  <header>
+    <h1>ThatCourse We Made Today</h1>
+    <p>Modern Digital Marketing & Business Mastery by Youthpreneur</p>
+  </header>
+  <div class="urgency">
+    Limited-time offer: Enroll now for all 17 modules at just ₹499! <br>Hurry, price will rise to ₹799 soon.
   </div>
-  <div class="bonus-item">
-    <strong>SEO Best Practices</strong>
-    <small>Boost your website’s Google ranking.</small>
-    <button onclick="buyBonus(102, 399)">Buy for ₹399</button>
+  <div class="container">
+    <h2>Included Course Modules</h2>
+    <div class="grid" id="modules"></div>
+
+    <h2>Exclusive Bonuses</h2>
+    <div class="grid" id="bonuses"></div>
   </div>
-  <div class="bonus-item">
-    <strong>Social Media Tips</strong>
-    <small>Expand and engage your network smartly.</small>
-    <button onclick="buyBonus(103, 250)">Buy for ₹250</button>
-  </div>
-</section>
 
-<section>
-  <h2>Register / Login to Enroll</h2>
-  <form id="registerForm">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" required />
-
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" required />
-
-    <label for="email">Email</label>
-    <input type="email" id="email" required />
-
-    <label for="profession">Profession</label>
-    <input type="text" id="profession" required />
-
-    <label for="city">City</label>
-    <input type="text" id="city" required />
-
-    <label for="state">State</label>
-    <input type="text" id="state" required />
-
-    <label for="password">Create Password</label>
-    <input type="password" id="password" required />
-
-    <button type="submit">Register and Buy</button>
+  <form class="form-card" id="registerForm" autocomplete="off">
+    <h2>Register / Login to Enroll</h2>
+    <div class="form-group">
+      <input type="text" id="name" required placeholder=" "/>
+      <label for="name">Full Name</label>
+    </div>
+    <div class="form-group">
+      <input type="tel" id="phone" required placeholder=" "/>
+      <label for="phone">Phone Number</label>
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" required placeholder=" "/>
+      <label for="email">Email</label>
+    </div>
+    <div class="form-group">
+      <input type="text" id="profession" required placeholder=" "/>
+      <label for="profession">Profession</label>
+    </div>
+    <div class="form-group">
+      <input type="text" id="city" required placeholder=" "/>
+      <label for="city">City</label>
+    </div>
+    <div class="form-group">
+      <input type="text" id="state" required placeholder=" "/>
+      <label for="state">State</label>
+    </div>
+    <div class="form-group">
+      <input type="password" id="password" required placeholder=" "/>
+      <label for="password">Create Password</label>
+    </div>
+    <button type="submit" class="cta-btn">Register and Buy Now</button>
+    <div id="message"></div>
   </form>
-  <div id="message"></div>
-</section>
 
 <script>
+  // List all 17 modules with sample descriptions for a real UI
+  const modulesList = [
+    { title: "Marketing Fundamentals", desc: "Understand core marketing concepts and strategies." },
+    { title: "Digital Marketing Basics", desc: "Learn the foundations of digital growth campaigns." },
+    { title: "Website & Online Store Setup", desc: "Step-by-step website and eCommerce setup." },
+    { title: "Google My Business & Local SEO", desc: "Grow your local presence using Google tools." },
+    { title: "Local SEO Strategies", desc: "Make your business discoverable locally." },
+    { title: "Content Marketing", desc: "Craft high-impact, converting content." },
+    { title: "Social Media Marketing", desc: "Engage and grow on all major social platforms." },
+    { title: "Content Creation & AI Use", desc: "Leverage AI for creative business assets." },
+    { title: "Email Marketing & Automation", desc: "Convert with email sequences & automation." },
+    { title: "Capstone Project & Real Application", desc: "Apply all skills in a guided real project." },
+    { title: "Mobile Marketing & App Store Optimization", desc: "Acquire customers with mobile-first strategies." },
+    { title: "E-Commerce Management", desc: "Master store optimization & sales funnels." },
+    { title: "Online Reputation Management", desc: "Manage and protect your brand online." },
+    { title: "Video & Podcast Marketing", desc: "Get results with video/audio content." },
+    { title: "Digital Media Planning & Buying", desc: "Budget and buy digital media with confidence." },
+    { title: "Advanced Sales Strategies", desc: "Close more deals with proven techniques." },
+    { title: "Business Growth & Scaling", desc: "Scale up with smart business models." },
+  ];
+
+  const bonuses = [
+    { title: "Content Marketing Guide", price: 299, desc: "Step up your content creation and conversion." },
+    { title: "SEO Best Practices", price: 399, desc: "Rank higher and get free organic traffic." },
+    { title: "Social Media Tips", price: 250, desc: "Boost engagement with smart, actionable strategies." }
+  ];
+
+  const modulesDiv = document.getElementById('modules');
+  modulesList.forEach(m => {
+    const card = document.createElement('div');
+    card.className = "card";
+    card.innerHTML = `<h3>${m.title}</h3><div class="desc">${m.desc}</div>`;
+    modulesDiv.appendChild(card);
+  });
+
+  const bonusesDiv = document.getElementById('bonuses');
+  bonuses.forEach(b => {
+    const card = document.createElement('div');
+    card.className = "card";
+    card.innerHTML = `<h3>${b.title}</h3><div class="desc">${b.desc}</div>
+      <span class="price">₹${b.price}</span>
+      <button class="cta-btn" onclick="buyBonus(${b.price})">Buy Bonus</button>`;
+    bonusesDiv.appendChild(card);
+  });
+
+  // Razorpay
   const razorpayPageUrl = "https://rzp.io/rzp/rD8ThUeD";
 
   document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const profession = document.getElementById('profession').value.trim();
-    const city = document.getElementById('city').value.trim();
-    const state = document.getElementById('state').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    if (!name || !phone || !email || !profession || !city || !state || !password) {
-      showMessage('Please fill all fields.');
-      return;
+    const fields = ['name','phone','email','profession','city','state','password'];
+    for (const id of fields) {
+      if (!document.getElementById(id).value.trim()) {
+        showMessage('Please fill all fields.');
+        return;
+      }
     }
-    // TODO: You should send and store these details securely.
-
-    // Redirect user to Razorpay payment page
+    // TODO: Save data securely to backend if needed!
     window.open(razorpayPageUrl, "_blank");
   });
 
-  function buyBonus(id, price) {
+  function buyBonus(price) {
     window.open(razorpayPageUrl, "_blank");
   }
-
   function showMessage(msg) {
-    const messageDiv = document.getElementById('message');
-    messageDiv.textContent = msg;
-    setTimeout(() => { messageDiv.textContent = ''; }, 4000);
+    const m = document.getElementById('message');
+    m.textContent = msg;
+    setTimeout(()=>{ m.textContent = ""; }, 3800);
   }
 </script>
 </body>
