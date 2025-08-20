@@ -7,11 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #6a0dad;        /* Purple */
-      --primary-dark: #4b0082;   /* Dark Purple */
-      --white: #fff;
-      --text: #222;
-      --shadow: 0 3px 24px rgba(106,13,173,0.12);
+      --navy: #0D1B2A;
+      --gold: #F59E0B;
+      --gold-dark: #D97706;
+      --white: #FFFFFF;
+      --gray-bg: #F8FAFC;
+      --text: #2E2E2E;
+      --shadow: 0 4px 18px rgba(0,0,0,0.08);
     }
 
     body {
@@ -19,65 +21,74 @@
       background: var(--white);
       color: var(--text);
       margin: 0; padding: 0;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
+    /* Sticky CTA */
     .sticky-cta {
       position: sticky;
       top: 0; z-index:1000;
-      background: var(--primary);
+      background: var(--navy);
       color: var(--white);
       text-align: center;
-      padding: 10px;
+      padding: 12px;
       font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+    }
+    .sticky-cta span {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-left: 10px;
     }
 
+    /* Header */
     header {
-      background: #f4f0fa;
+      background: var(--gray-bg);
       text-align: center;
-      padding: 3rem 1rem 2rem 1rem;
-      border-bottom: 2px solid var(--primary-dark);
+      padding: 3rem 1rem 2.2rem 1rem;
+      border-bottom: 2px solid var(--navy);
     }
-
     header h1 {
-      color: var(--primary-dark);
-      font-size: 2.3rem;
-      margin: 0 0 10px 0;
+      color: var(--navy);
+      font-size: 2.4rem;
+      margin: 0 0 12px 0;
       font-weight: 800;
     }
     header p {
-      color: #555;
-      font-size: 1.1rem;
+      color: #444;
+      font-size: 1.15rem;
     }
 
+    /* Urgency */
     .urgency {
-      color: var(--primary-dark);
-      background: #f4f0fa;
+      color: var(--navy);
+      background: #fff7ed;
       font-weight: 700;
       font-size: 1.1rem;
       text-align: center;
-      border-radius: 20px;
-      margin: 20px auto;
+      border-radius: 12px;
+      margin: 25px auto;
       padding: 15px;
-      max-width: 600px;
-      border: 2px solid var(--primary);
+      max-width: 650px;
+      border: 2px solid var(--gold);
       box-shadow: var(--shadow);
     }
 
+    /* Container */
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 960px;
       margin: 32px auto;
       padding: 0 2vw;
     }
-
     h2 {
-      color: var(--primary-dark);
+      color: var(--navy);
       font-weight: 800;
       font-size: 1.4rem;
-      border-left: 5px solid var(--primary);
+      border-left: 5px solid var(--gold);
       padding-left: 14px;
       margin: 30px 0 20px 0;
     }
@@ -88,9 +99,8 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
     }
-
     .card {
-      background: var(--white);
+      background: var(--gray-bg);
       border-radius: 12px;
       box-shadow: var(--shadow);
       padding: 20px;
@@ -98,27 +108,28 @@
       display: flex; 
       flex-direction: column; 
       justify-content: space-between;
-      border-top: 3px solid var(--primary);
       transition: transform 0.2s;
     }
-
     .card:hover { transform: translateY(-3px); }
-    .card h3 { color: var(--primary); font-size: 1.1rem; margin: 0 0 8px; }
+    .card h3 { color: var(--navy); font-size: 1.1rem; margin: 0 0 8px; }
     .card .desc { color: #444; font-size: 1rem; }
 
+    /* CTA Buttons */
     .cta-btn {
-      background: var(--primary);
-      color: var(--white);
+      background: var(--gold);
+      color: var(--navy);
       border: none;
       border-radius: 6px;
-      padding: 10px;
+      padding: 12px;
       margin-top: 12px;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      transition: background 0.2s;
     }
-    .cta-btn:hover { background: var(--primary-dark); }
+    .cta-btn:hover { background: var(--gold-dark); }
 
     /* Form */
     .form-card {
@@ -129,35 +140,36 @@
       margin: 40px auto;
       padding: 25px;
     }
-    .form-group {
-      margin-bottom: 16px;
-    }
+    .form-group { margin-bottom: 16px; }
     .form-group input {
       width: 100%;
       padding: 12px;
       font-size: 1rem;
-      border: 1.4px solid #d1c4e9;
+      border: 1.4px solid #d1d5db;
       border-radius: 4px;
       outline: none;
-      background: #faf7ff;
+      background: #fff;
     }
-
-    #message { text-align: center; color: var(--primary-dark); font-weight: 700; margin-top: 10px; }
+    .form-group input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(245,158,11,0.25);
+    }
+    #message { text-align: center; color: var(--navy); font-weight: 700; margin-top: 10px; }
 
     /* Footer */
     footer {
-      background: var(--primary-dark);
+      background: var(--navy);
       color: var(--white);
       padding: 25px;
       text-align: center;
       font-size: 1rem;
     }
-    .footer-link { color: var(--white); text-decoration: underline; }
+    .footer-link { color: var(--gold); text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="sticky-cta">
-    Enroll Now – Limited Offer!
+    Enroll Now – Limited Offer! <span>₹499</span>
   </div>
 
   <header>
@@ -166,7 +178,7 @@
   </header>
 
   <div class="urgency">
-    All 17 Modules & Bonuses – Only ₹499! Hurry before price increases.
+    🚀 All 17 Modules & Bonuses – Only ₹499! Hurry before price increases.
   </div>
 
   <div class="container">
@@ -174,6 +186,8 @@
     <div class="grid">
       <div class="card"><h3>Marketing Fundamentals</h3><div class="desc">Master principles of success.</div></div>
       <div class="card"><h3>Digital Marketing Basics</h3><div class="desc">Step into campaigns.</div></div>
+      <div class="card"><h3>Website Setup</h3><div class="desc">Launch your online presence.</div></div>
+      <div class="card"><h3>Social Media Marketing</h3><div class="desc">Grow customers online.</div></div>
     </div>
   </div>
 
